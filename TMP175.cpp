@@ -1,10 +1,10 @@
 /** 
- *  TMP175.h
+ *  TMP175.cpp
  *  
  *  This is a library for interfacing to the Texas Instruments TMP175 
  *  temperature measurement IC.  
  *
- *  Copyright (C) 2014  Clint Stevenson (CascoLogix http://cascologix.com)
+ *  Copyright (C) 2014  CascoLogix (http://cascologix.com)
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -39,11 +39,11 @@ TMP175::TMP175()
 void TMP175::begin()
 {  
 	Wire.begin();        					// Join I2C bus
-	this->configTemperature();				// Configure the Temperature IC
+	this->init();							// Configure the Temperature IC
 }
 
 
-void TMP175::configTemperature()				// Configure the temperature sensor IC
+void TMP175::init()							// Configure the temperature sensor IC
 {
 	// Setup configuration register 12-bit
 	Wire.beginTransmission(TMP175_I2C_ADDRESS);    
